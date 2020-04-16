@@ -569,9 +569,9 @@ function copyTempDouble(ptr) {
 
   function _OpenPeer(key, id, host, port) {
           
-          var keystr = Pointer_stringify(key);
-          var idstr = Pointer_stringify(id);
-          var hoststr = Pointer_stringify(host);
+          var keystr = UTF8ToString(key);
+          var idstr = UTF8ToString(id);
+          var hoststr = UTF8ToString(host);
   
           var peer = {
               peer: new Peer(idstr, { key: keystr, debug: 2, host: hoststr, port: port}),
@@ -636,7 +636,7 @@ function copyTempDouble(ptr) {
   
           var peer = UnityPeerJS.peers[peerInstance];
           var conn = peer.conns[connInstance];
-          var datastr = Pointer_stringify(data);
+          var datastr = UTF8ToString(data);
   
           console.log('sending data', length);
   
